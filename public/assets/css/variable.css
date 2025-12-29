@@ -1,0 +1,15 @@
+:root {
+    --primary: #172a7c;
+    --secondary: #6c757d;
+    --dark: #0b1f33;
+    --light: #f5f7fa;
+    --white: #ffffff;
+
+    --gradient-primary: linear-gradient(135deg, #0d3b66, #1b5fa7);
+
+    --font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
+
+    --radius: 12px;
+    --transition: all .3s ease;
+    --shadow: 0 10px 30px rgba(0,0,0,.08);
+}

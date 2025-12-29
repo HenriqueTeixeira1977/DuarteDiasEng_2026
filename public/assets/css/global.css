@@ -1,0 +1,158 @@
+/* =========================================================
+   ESTILO GLOBAL DUARTE DIAS ENGENHARIA
+   Layout corporativo azul/cinza – Premium
+   By HT Websites
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {background-color: rgb(255, 255, 255);
+    font-family: var(--font-main);
+    background: var(--light);
+    color: #333;
+    line-height: 1.6;
+}
+
+section {
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 50px;
+}
+
+.btn-primary:hover {
+    opacity: .9;
+}
+
+/* NAVBAR OVERLAY */
+.navbar-overlay {
+    background: transparent;
+    padding: 20px 0;
+    transition: all 0.35s ease;
+    z-index: 9999;
+}
+
+/* Links no topo (hero) */
+.navbar-overlay .nav-link,
+.navbar-overlay .navbar-brand {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* Hover */
+.navbar-overlay .nav-link:hover {
+    color: #dce6f1;
+}
+
+/* NAVBAR AO SCROLL */
+.navbar-overlay.scrolled {
+    background: #ffffffaf;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    padding: 10px 0;
+}
+
+/* Links após scroll */
+
+.navbar-overlay.scrolled .navbar-brand {
+    color: #0d3b66;
+}
+.navbar-overlay.scrolled .nav-link {
+    color: #0d3b66;
+}
+
+/* Botão mobile */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* Ícone mobile após scroll */
+.navbar-overlay.scrolled .navbar-toggler-icon {
+    filter: invert(0);
+}
+
+/* Logos padrão */
+.navbar-brand .logo {
+    transition: opacity .3s ease;
+}
+
+/* Estado inicial (sobre hero escuro) */
+.navbar-overlay {
+    background: transparent;
+}
+
+.navbar-overlay .logo-dark {
+    display: none;
+}
+
+.navbar-overlay .logo-white {
+    display: block;
+}
+
+/* Estado após scroll */
+.navbar.scrolled {
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,.08);
+}
+
+.navbar.scrolled .logo-white {
+    display: none;
+}
+
+.navbar.scrolled .logo-dark {
+    display: block;
+}
+
+
+/* HERO GLOBAL */
+.hero {
+    min-height: 100vh;
+    padding-top: 120px;
+    background: linear-gradient(
+        rgba(11, 31, 51, 0.24),
+        rgba(11,31,51,.75)
+    ),
+    url("../../../public/assets/img/hero-bg.jpg") center/cover no-repeat;
+}
+
+.banner-parallax {
+    min-height: 350px;
+    background: linear-gradient(
+        rgba(13, 59, 102, 0.404),
+        rgba(13,59,102,.8)
+    ),
+    url("../../../public/assets/img/parallax.jpg") center/cover fixed;
+}
+
+.parallax-section {
+    min-height: 350px;
+    background: linear-gradient(
+        rgba(11, 31, 51, 0.404),
+        rgba(11,31,51,.85)
+    ),
+    url("../../../public/assets/img/parallax2.jpg") center/cover fixed;
+}
+
+.cta-section {
+    background: var(--white);
+}

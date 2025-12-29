@@ -1,0 +1,60 @@
+.hero-projetos {
+  height: 60vh;
+  background: url('../img/projetos/projetos-hero.jpg') center/cover no-repeat;
+  position: relative;
+}
+
+.hero-projetos .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(13,40,80,.9), rgba(0,0,0,.6));
+}
+
+#projetos{
+  background: #f9f9f9;
+  color: rgb(255, 238, 0);
+}
+#title-projetos h2 {
+  color: #0d2850;
+}
+
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.portfolio-card img {
+  transition: transform .5s;
+}
+
+.portfolio-card:hover img {
+  transform: scale(1.1);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  opacity: 0;
+  transition: .4s;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-overlay h5 {
+  font-weight: bold;
+}
+
+.portfolio-overlay span {
+  font-size: 14px;
+  opacity: .9;
+}

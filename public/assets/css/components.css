@@ -1,0 +1,118 @@
+
+/* Component Styles */
+.feature-box {
+    transition: var(--transition);
+}
+
+.feature-box:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.service-card img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow);
+}
+
+.counter-box h2 {
+    font-size: 3rem;
+}
+
+.premium-card {
+    border-radius: var(--radius);
+    background: var(--white);
+    transition: var(--transition);
+}
+
+.premium-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+}
+
+.floating-buttons {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* BOTÃO BASE */
+.floating-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    background: #333;
+    box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    transition: all .35s ease;
+    position: relative;
+}
+
+/* WHATSAPP */
+.floating-btn.whatsapp {
+    background: #25d366;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37,211,102,.6); }
+    70% { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+/* VOLTAR AO TOPO */
+.floating-btn.top {
+    background: var(--primary);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(15px) scale(.9);
+}
+
+.floating-btn.top.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+}
+
+/* HOVER */
+.floating-btn:hover {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+/* TOOLTIP */
+.floating-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: 70px;
+    background: #111;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: .75rem;
+    opacity: 0;
+    white-space: nowrap;
+    transform: translateX(10px);
+    transition: all .3s ease;
+    pointer-events: none;
+}
+
+.floating-btn:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+

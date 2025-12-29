@@ -1,0 +1,205 @@
+/* =========================
+   HERO SOBRE
+========================= */
+.hero-sobre {
+    position: relative;
+    min-height: 65vh;
+    background: url('../img/sobre/sobre.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+.hero-sobre .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(10, 30, 60, 0.85),
+        rgba(10, 30, 60, 0.75)
+    );
+}
+
+.hero-sobre .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-sobre h1 {
+    max-width: 720px;
+}
+
+.hero-sobre p {
+    max-width: 680px;
+}
+
+/* =========================
+   SOBRE CONTEÚDO
+========================= */
+.sobre-conteudo {
+    padding: 80px 0;
+}
+
+.sobre-conteudo h2 {
+    font-weight: 700;
+    color: blue;
+}
+.sobre-conteudo p {
+    color: #f7f7f7;
+}
+
+.sobre-img {
+    border-radius: 14px;
+}
+
+/* =========================
+   MVV
+========================= */
+.mvv-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.mvv-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,.05);
+    transition: all .3s ease;
+}
+
+.mvv-card:hover {
+    transform: translateY(-8px);
+}
+
+.mvv-card i {
+    font-size: 40px;
+    color: var(--bs-primary);
+    margin-bottom: 15px;
+}
+
+.mvv-card h5 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+.timeline-section {
+    background-color: rgb(255, 255, 255);
+    padding: 80px 0;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background: #dee2e6;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+}
+
+.timeline-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    position: relative;
+}
+
+.timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 24px;
+    width: 14px;
+    height: 14px;
+    background: var(--bs-primary);
+    border-radius: 50%;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::after {
+    right: -47px;
+}
+
+.timeline-item:nth-child(even) .timeline-content::after {
+    left: -47px;
+}
+
+.timeline-year {
+    font-weight: 700;
+    color: var(--bs-primary);
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* =========================
+   TIMELINE RESPONSIVO
+========================= */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 8px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 40px;
+        padding-right: 15px;
+        left: 0 !important;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+
+    .timeline-content::after {
+        left: -33px !important;
+    }
+}
+
+/* =========================
+   CTA FINAL
+========================= */
+.sobre-cta {
+    padding: 90px 0;
+    background: linear-gradient(
+        135deg,
+        var(--bs-primary),
+        #0a2a4a
+    );
+    color: #fff;
+    text-align: center;
+}
+
+.sobre-cta h2 {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.sobre-cta p {
+    max-width: 680px;
+    margin: 0 auto 30px;
+    opacity: .9;
+}
