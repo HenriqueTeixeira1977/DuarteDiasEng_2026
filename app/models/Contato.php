@@ -1,9 +1,25 @@
 <?php
-class Contato extends Database {
+require_once __DIR__ . '/../core/Database.php';
 
-    public static function salvarLead($nome, $email, $telefone, $mensagem) {
-        $pdo = self::connect();
-        $sql = $pdo->prepare("INSERT INTO leads SET nome=?, email=?, telefone=?, mensagem=?");
-        return $sql->execute([$nome, $email, $telefone, $mensagem]);
+class Contato
+{
+    public static function salvar($dados)
+    {
+        $sql = "INSERT INTO contatos 
+                (nome, email, telefone, servico, mensagem, origem)
+                VALUES 
+                (:nome, :email, :telefone, :servico, :mensagem, :origem)";
+
+        $stmt = Database::connect()->prepare($sql);
+
+        return $stmt->execute([
+            ':nome' => $dados['nome'],
+            ':email' => $dados['email'],
+            ':telefone' => $dados['telefone'],
+            ':servico' => $dados['servico'],
+            ':mensagem' => $dados['mensagem'],
+            ':origem' => $dados['origem']
+        ]);
     }
 }
+?>

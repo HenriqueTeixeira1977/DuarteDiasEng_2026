@@ -1,21 +1,24 @@
 <?php
-class Database {
-    protected static $pdo;
 
-    public static function connect() {
-        if(!isset(self::$pdo)) {
-            try {
-                self::$pdo = new PDO(
-                    "mysql:host=".DB_HOST.";dbname=".DB_NAME, 
-                    DB_USER, 
-                    DB_PASS, 
-                    array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8")
-                );
-                self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch(PDOException $e) {
-                die("Erro ao conectar: ".$e->getMessage());
-            }
+class Database
+{
+    private static $conn;
+
+    public static function connect()
+    {
+        if (!self::$conn) {
+            self::$conn = new PDO(
+                "mysql:host=localhost;dbname=duartedias;charset=utf8",
+                "root",
+                "",
+                [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+                ]
+            );
         }
-        return self::$pdo;
+
+        return self::$conn;
     }
 }
+?>

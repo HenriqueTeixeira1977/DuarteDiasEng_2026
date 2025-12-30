@@ -1,23 +1,32 @@
 <?php
-class Controller {
-    public function loadView($viewName, $viewData = []) {
-        extract($viewData);
-        require 'app/views/'.$viewName.'.php';
-    }
+require_once __DIR__ . '/../models/Contato.php';
 
-    public function loadTemplate($viewName, $viewData = []) {
-        require 'app/views/template.php';
-    }
+class ContatoController
+{
+    public function enviar()
+    {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: /');
+            exit;
+        }
 
-    public function loadViewInTemplate($viewName, $viewData = []) {
-        extract($viewData);
-        require 'app/views/'.$viewName.'.php';
+        $dados = [
+            'nome'     => trim($_POST['nome'] ?? ''),
+            'email'    => trim($_POST['email'] ?? ''),
+            'telefone' => trim($_POST['telefone'] ?? ''),
+            'servico'  => trim($_POST['servico'] ?? ''),
+            'mensagem' => trim($_POST['mensagem'] ?? ''),
+            'origem'   => trim($_POST['origem'] ?? 'desconhecida')
+        ];
+
+        if (empty($dados['nome']) || empty($dados['telefone'])) {
+            header('Location: /erro');
+            exit;
+        }
+
+        Contato::salvar($dados);
+
+        header('Location: /obrigado');
+        exit;
     }
 }
-
-// mail config
-define('SMTP_HOST','smtp.hostinger.com'); // ajuste Hostinger ou seu provedor
-define('SMTP_USER','contato@duartediasengenharia.com.br');
-define('SMTP_PASS','SUA_SENHA_DE_EMAIL');
-define('SMTP_PORT',587);
-define('SMTP_FROM','contato@duartediasengenharia.com.br');

@@ -55,22 +55,19 @@
                     <h3 class="fw-bold mb-4">Solicite um Orçamento</h3>
 
                     <form action="/contato/enviar" method="POST">
-
+                        <input type="hidden" name="origem" value="contato">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <input type="text" name="nome" class="form-control" placeholder="Nome completo" required>
                             </div>
-
                             <div class="col-md-6">
-                                <input type="email" name="email" class="form-control" placeholder="E-mail" required>
+                                <input type="email" name="email" class="form-control" placeholder="E-mail">
                             </div>
-
                             <div class="col-md-6">
                                 <input type="text" name="telefone" class="form-control" placeholder="Telefone / WhatsApp" required>
                             </div>
-
                             <div class="col-md-6">
-                                <select name="servico" class="form-control" required>
+                                <select name="servico" class="form-control">
                                     <option value="">Tipo de Serviço</option>
                                     <option>Projeto Estrutural</option>
                                     <option>Laudo Técnico</option>
@@ -78,7 +75,6 @@
                                     <option>Acompanhamento de Obra</option>
                                 </select>
                             </div>
-
                             <div class="col-12">
                                 <textarea name="mensagem" rows="4" class="form-control" placeholder="Descreva sua necessidade"></textarea>
                             </div>
@@ -89,8 +85,8 @@
                                 </button>
                             </div>
                         </div>
-
                     </form>
+
                 </div>
             </div>
 

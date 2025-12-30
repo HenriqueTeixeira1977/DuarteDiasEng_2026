@@ -231,37 +231,38 @@
         <div class="row text-center mb-4">
             <h2 class="fw-bold">Contato</h2>
         </div>
-
         <div class="row justify-content-center">
-            <div class="col-md-8">
 
-                <form class="p-4 shadow rounded bg-white">
+            <div class="col-md-8">
+                <form action="/contato/enviar" method="POST" class="p-4 shadow rounded bg-white">
+
+                    <input type="hidden" name="origem" value="home">
+
                     <div class="mb-3">
                         <label class="form-label">Nome</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="nome" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">WhatsApp</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" name="telefone" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">E-mail</label>
-                        <input type="email" class="form-control">
+                        <input type="email" name="email" class="form-control">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Mensagem</label>
-                        <textarea class="form-control" rows="4" required></textarea>
+                        <textarea name="mensagem" class="form-control" rows="4" required></textarea>
                     </div>
 
                     <button class="btn btn-primary w-100 py-2">Enviar</button>
                 </form>
-
             </div>
-        </div>
 
+        </div>
     </div>
 </section>
 
