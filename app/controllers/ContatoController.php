@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../models/Contato.php';
+require_once __DIR__ . '../models/Contato.php';
 
 class ContatoController
 {
@@ -27,8 +27,7 @@ class ContatoController
 
         Contato::salvar($dados);
 
-        header('Location: /obrigado');
+        header('Location: ../view/pages/obrigado.php');
         exit;
     }
 }
-?>
