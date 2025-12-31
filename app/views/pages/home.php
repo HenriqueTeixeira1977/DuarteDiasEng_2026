@@ -232,7 +232,6 @@
             <h2 class="fw-bold">Contato</h2>
         </div>
         <div class="row justify-content-center">
-
             <div class="col-md-8">
                 <form action="/contato/enviar" method="POST" class="p-4 shadow rounded bg-white">
 
