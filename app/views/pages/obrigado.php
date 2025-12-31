@@ -1,3 +1,4 @@
+<?php include '../../views/partials/header.php'; ?>
 <section class="py-5 text-center">
     <div class="container">
         <h1 class="fw-bold text-success">Mensagem enviada com sucesso!</h1>

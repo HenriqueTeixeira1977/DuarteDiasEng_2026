@@ -17,3 +17,13 @@ $core = new Core();
 $core->run();
 
 $router->post('/contato/enviar', 'ContatoController@enviar');
+?>
+
+<?php
+require_once '../app/config/config.php';
+require_once '../app/core/App.php';
+require_once '../app/core/Controller.php';
+
+$app = new App();
+$app->run();
+?>

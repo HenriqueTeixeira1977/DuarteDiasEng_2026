@@ -259,6 +259,18 @@
 
                     <button class="btn btn-primary w-100 py-2">Enviar</button>
                 </form>
+
+                <form action="/contato/enviar" method="POST">
+                    <input type="hidden" name="origem" value="home">
+
+                    <input type="text" name="nome" class="form-control" required>
+                    <input type="text" name="telefone" class="form-control" required>
+                    <input type="email" name="email" class="form-control">
+                    <textarea name="mensagem" required></textarea>
+
+                    <button type="submit">Enviar</button>
+                </form>
+
             </div>
 
         </div>

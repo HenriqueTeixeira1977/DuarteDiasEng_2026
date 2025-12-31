@@ -1,33 +1,33 @@
 <?php
 
-require_once __DIR__ . '../models/Contato.php';
+require_once '../app/models/Contato.php';
 
-class ContatoController
-{
-    public function enviar()
-    {
+class ContatoController extends Controller {
+
+    public function enviar() {
+
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             header('Location: /');
             exit;
         }
 
         $dados = [
-            'nome'     => trim($_POST['nome'] ?? ''),
-            'email'    => trim($_POST['email'] ?? ''),
-            'telefone' => trim($_POST['telefone'] ?? ''),
-            'servico'  => trim($_POST['servico'] ?? ''),
-            'mensagem' => trim($_POST['mensagem'] ?? ''),
-            'origem'   => trim($_POST['origem'] ?? 'desconhecida')
+            'nome'     => $_POST['nome'] ?? '',
+            'email'    => $_POST['email'] ?? '',
+            'telefone' => $_POST['telefone'] ?? '',
+            'servico'  => $_POST['servico'] ?? null,
+            'mensagem' => $_POST['mensagem'] ?? '',
+            'origem'   => $_POST['origem'] ?? 'home'
         ];
 
-        if (empty($dados['nome']) || empty($dados['telefone'])) {
-            header('Location: /erro');
+        $contato = new Contato();
+
+        if ($contato->salvar($dados)) {
+            header('Location: /obrigado');
             exit;
         }
 
-        Contato::salvar($dados);
-
-        header('Location: ../view/pages/obrigado.php');
-        exit;
+        die('Erro ao salvar contato');
     }
 }
+?>  
