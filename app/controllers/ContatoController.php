@@ -1,45 +1,39 @@
 <?php
+// app/controllers/ContactController.php - Lida com form de contato
 
-require_once __DIR__ . '/../models/Mensagem.php';
+require_once __DIR__ . '/../models/Lead.php';
 
-class ContatoController {
-    private $mensagemModel;
+class ContactController {
+    public function submit() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Validação simples (adicione mais se precisar)
+            $errors = [];
+            if (empty($_POST['nome'])) $errors[] = 'Nome obrigatório';
+            if (!empty($_POST['email']) && !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) $errors[] = 'Email inválido';
 
-    public function __construct($db) {
-        $this->mensagemModel = new Mensagem($db);
+            if (empty($errors)) {
+                $data = [
+                    'nome' => $_POST['nome'],
+                    'email' => $_POST['email'] ?? null,
+                    'telefone' => $_POST['telefone'] ?? null,
+                    'mensagem' => $_POST['mensagem'] ?? null,
+                    // Adicione UTM se capturar via query string
+                ];
+                Lead::create($data);
+                $_SESSION['success'] = 'Mensagem enviada com sucesso!';
+                header('Location: /contato');  // Redireciona para página de contato
+                exit;
+            } else {
+                $_SESSION['errors'] = $errors;
+                header('Location: /contato');  // Volta com erros
+                exit;
+            }
+        }
     }
 
     public function index() {
-        // Carrega a view do formulário (você já deve ter)
-        require __DIR__ . '/../views/contato.php';
-    }
-
-    public function enviar() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Validação básica
-            $erros = [];
-            if (empty($_POST['nome'])) $erros[] = 'Nome é obrigatório';
-            if (empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) $erros[] = 'Email válido é obrigatório';
-            if (empty($_POST['mensagem'])) $erros[] = 'Mensagem é obrigatória';
-
-            if (empty($erros)) {
-                $dados = [
-                    'nome' => trim($_POST['nome']),
-                    'email' => trim($_POST['email']),
-                    'telefone' => trim($_POST['telefone'] ?? ''),
-                    'assunto' => trim($_POST['assunto'] ?? ''),
-                    'mensagem' => trim($_POST['mensagem'])
-                ];
-
-                if ($this->mensagemModel->salvar($dados)) {
-                    $sucesso = "Mensagem enviada com sucesso! Entraremos em contato em breve.";
-                } else {
-                    $erros[] = "Erro ao enviar. Tente novamente.";
-                }
-            }
-        }
-
-        // Recarrega a view com mensagens de erro/sucesso
-        require __DIR__ . '/../views/contato.php';
+        // Mostra a view de contato (chamado via roteamento)
+        require_once __DIR__ . '/../views/contact.php';
     }
 }
+?>

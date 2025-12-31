@@ -1,20 +1,21 @@
 <?php
+// public/index.php - Ponto de entrada e roteamento simples
 
-require_once __DIR__ . '/../app/core/Database.php';
-require_once __DIR__ . '/../app/controllers/ContatoController.php';
+require_once __DIR__ . '/../config.php';
+session_start();  // Para sessões de erros/sucesso
 
-$database = new Database();
-$db = $database->getConnection();
-
+// Roteamento básico (adicione mais rotas conforme precisar)
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$uri = trim($uri, '/');
 
-$contatoController = new ContatoController($db);
-
-if ($uri === '/contato' && $_SERVER['REQUEST_METHOD'] === 'GET') {
-    $contatoController->index();
-} elseif ($uri === '/contato/enviar' && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    $contatoController->enviar();
+if ($uri === 'contato') {
+    $controller = new ContactController();
+    $controller->index();
+} elseif ($uri === 'contato/submit') {
+    $controller = new ContactController();
+    $controller->submit();
 } else {
-    // Outras rotas ou página 404
-    echo "Página não encontrada";
+    // Página inicial ou 404
+    echo 'Página não encontrada';
 }
+?>
