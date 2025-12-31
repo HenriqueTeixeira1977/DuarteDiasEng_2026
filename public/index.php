@@ -1,4 +1,4 @@
-<?php include '../app/views/partials/header.php'; ?>
+<?php include 'partials/header.php'; ?>
 
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
