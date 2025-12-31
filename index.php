@@ -1,29 +1,21 @@
 <?php
-require 'config.php';
-require 'app/core/Core.php';
-require 'app/core/Controller.php';
-require 'app/core/Database.php';
+// public/index.php - Ponto de entrada e roteamento simples
 
-// Autoload dos controllers e models
-spl_autoload_register(function($class){
-    if(file_exists("app/controllers/$class.php")){
-        include "app/controllers/$class.php";
-    } elseif(file_exists("app/models/$class.php")){
-        include "app/models/$class.php";
-    }
-});
+require_once __DIR__ . '/../config.php';
+session_start();  // Para sessões de erros/sucesso
 
-$core = new Core();
-$core->run();
+// Roteamento básico (adicione mais rotas conforme precisar)
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$uri = trim($uri, '/');
 
-$router->post('/contato/enviar', 'ContatoController@enviar');
-?>
-
-<?php
-require_once '../app/config/config.php';
-require_once '../app/core/App.php';
-require_once '../app/core/Controller.php';
-
-$app = new App();
-$app->run();
+if ($uri === 'contato') {
+    $controller = new ContactController();
+    $controller->index();
+} elseif ($uri === 'contato/submit') {
+    $controller = new ContactController();
+    $controller->submit();
+} else {
+    // Página inicial ou 404
+    echo 'Página não encontrada';
+}
 ?>
