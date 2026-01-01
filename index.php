@@ -1,7 +1,7 @@
 <?php
 // public/index.php - Ponto de entrada e roteamento simples
 
-require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/config.php';
 session_start();  // Para sessões de erros/sucesso
 
 // Roteamento básico (adicione mais rotas conforme precisar)

@@ -1,4 +1,10 @@
 RewriteEngine On
+
+# Redireciona todas as requisições para a pasta public/
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1 [L]
+
+# Se acessar exatamente a raiz, redireciona para public/index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [QSA,L]
+RewriteRule ^$ /public/index.php [L]
