@@ -1,39 +1,33 @@
 <?php
-// app/controllers/ContactController.php - Lida com form de contato
+// app/controllers/ContatoController.php
 
-require_once __DIR__ . '/../models/Lead.php';
+require_once __DIR__ . '/../../config.php';  // Carrega config e conexão DB
 
-class ContactController {
-    public function submit() {
+class ContatoController {
+    public function enviar() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Validação simples (adicione mais se precisar)
-            $errors = [];
-            if (empty($_POST['nome'])) $errors[] = 'Nome obrigatório';
-            if (!empty($_POST['email']) && !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) $errors[] = 'Email inválido';
+            $nome = trim($_POST['nome'] ?? '');
+            $telefone = trim($_POST['telefone'] ?? '');
+            $email = trim($_POST['email'] ?? '');
+            $mensagem = trim($_POST['mensagem'] ?? '');
 
-            if (empty($errors)) {
-                $data = [
-                    'nome' => $_POST['nome'],
-                    'email' => $_POST['email'] ?? null,
-                    'telefone' => $_POST['telefone'] ?? null,
-                    'mensagem' => $_POST['mensagem'] ?? null,
-                    // Adicione UTM se capturar via query string
-                ];
-                Lead::create($data);
-                $_SESSION['success'] = 'Mensagem enviada com sucesso!';
-                header('Location: /contato');  // Redireciona para página de contato
-                exit;
-            } else {
-                $_SESSION['errors'] = $errors;
-                header('Location: /contato');  // Volta com erros
+            if (empty($nome) || empty($telefone) || empty($mensagem)) {
+                echo '<script>alert("Preencha os campos obrigatórios!"); history.back();</script>';
                 exit;
             }
+
+            // Insere no banco (usando a função getDB() do config.php)
+            $db = getDB();
+            $stmt = $db->prepare("INSERT INTO leads (nome, email, telefone, mensagem, origem) VALUES (?, ?, ?, ?, 'home')");
+            $stmt->execute([$nome, $email, $telefone, $mensagem]);
+
+            echo '<script>alert("Mensagem enviada com sucesso! Entraremos em contato."); location.href="/";</script>';
         }
     }
+}
 
-    public function index() {
-        // Mostra a view de contato (chamado via roteamento)
-        require_once __DIR__ . '/../views/contact.php';
-    }
+// Executa se for chamada diretamente
+if (basename($_SERVER['PHP_SELF']) == 'index.php') {
+    (new ContatoController())->enviar();
 }
 ?>
