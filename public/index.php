@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../config.php';
-require_once __DIR__ . '/../app/controllers/ContatoController.php';
+require_once __DIR__ . '../config.php';
+require_once __DIR__ . '../app/controllers/ContatoController.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     (new ContatoController())->enviar();
