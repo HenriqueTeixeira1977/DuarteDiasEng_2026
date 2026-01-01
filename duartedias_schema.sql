@@ -1,6 +1,6 @@
 -- duartedias_schema.sql
-CREATE DATABASE IF NOT EXISTS duartedias CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE duartedias;
+CREATE DATABASE IF NOT EXISTS duartediasengenharia2026 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE duartediasengenharia2026;
 
 -- tabela de usuários/admins
 CREATE TABLE IF NOT EXISTS admins (

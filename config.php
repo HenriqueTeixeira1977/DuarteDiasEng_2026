@@ -8,7 +8,7 @@ define('PUBLIC_PATH', ROOT_PATH . '/public');
 
 // Configurações do banco de dados (altere com seus dados reais)
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'duartediaseng');
+define('DB_NAME', 'duartediasengenharia2026');
 define('DB_USER', 'root');  // Seu usuário MySQL
 define('DB_PASS', '');      // Sua senha MySQL (deixe vazio se não tiver)
 
