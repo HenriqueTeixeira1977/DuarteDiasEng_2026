@@ -137,24 +137,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container text-center">
         <div class="row g-4">
                 <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
-                    <h2 class="fw-bold display-5 text-primary" data-counter="50">0</h2>
+                    <h2 class="fw-bold display-5 text-primary" data-counter="100">0</h2>
                     <p class="text-muted">Projetos Entregues</p>
                 </div>                
                 <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="counter-box">
-                        <h2 class="fw-bold display-5 text-primary" data-counter="15">0</h2>
+                        <h2 class="fw-bold display-5 text-primary" data-counter="100">0</h2>
                         <p class="text-muted">Anos de Experiência</p>
                     </div>
                 </div>
                 <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="counter-box">
-                        <h2 class="fw-bold display-5 text-primary" data-counter="80">0</h2>
+                        <h2 class="fw-bold display-5 text-primary" data-counter="100">0</h2>
                         <p class="text-muted">Clientes Atendidos</p>
                     </div>
                 </div>
                 <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="counter-box">
-                        <h2 class="fw-bold display-5 text-primary" data-counter="40">0</h2>
+                        <h2 class="fw-bold display-5 text-primary" data-counter="100">0</h2>
                         <p class="text-muted">Certificações</p>
                     </div>
                 </div>
@@ -289,17 +289,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </section>
 
-
+<!-- SCRIPTS  -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script src="assets/js/main.js"></script>
 <script src="assets/js/animations.js"></script>
 
-<script src="/public/assets/js/main.js"></script>
-<script src="/public/assets/js/animations.js"></script>
-
-<!-- footer -->
+<!-- FOOTER -->
 <?php include 'partials/footer.php'; ?>  <!-- footer -->
 
 

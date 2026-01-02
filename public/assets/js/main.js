@@ -29,7 +29,7 @@ const counters = document.querySelectorAll('[data-counter]');
 
 const animateCounter = (el) => {
 const target = +el.getAttribute('data-counter');
-const duration = 1800;
+const duration = 10000;
 let start = 0;
 const increment = target / (duration / 20);
 
