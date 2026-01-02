@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
                 <div class="card h-100 shadow-sm border-0 service-card">
-                    <img src="../../../public/assets/img/projeto1.jpg" class="card-img-top">
+                    <img src="assets/img/projeto1.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="fw-bold">Projetos Estruturais</h5>
                         <p>Desenvolvimento de projetos completos e detalhados para obras residenciais e comerciais.</p>
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
                 <div class="card h-100 shadow-sm border-0 service-card">
-                    <img src="../../../public/assets/img/projeto2.jpg" class="card-img-top">
+                    <img src="assets/img/projeto2.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="fw-bold">Consultoria Técnica</h5>
                         <p>Orientações especializadas para execução, regularização e análise de estruturas.</p>
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
                 <div class="card h-100 shadow-sm border-0 service-card">
-                    <img src="../../../public/assets/img/projeto3.jpg" class="card-img-top">
+                    <img src="assets/img/projeto3.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5 class="fw-bold">Laudos e Vistorias</h5>
                         <p>Inspeções completas com emissão de relatórios técnicos detalhados.</p>
@@ -201,34 +201,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="../../../public/assets/img/projeto_001.png">
+                    <img src="assets/img/projeto_001.png">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../../../public/assets/img/projeto_002.png">
+                    <img src="assets/img/projeto_002.png">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../../../public/assets/img/projeto_003.png">
+                    <img src="assets/img/projeto_003.png">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../../../public/assets/img/projeto_004.png">
+                    <img src="assets/img/projeto_004.png">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../../../public/assets/img/projeto_005.png">
+                    <img src="assets/img/projeto_005.png">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../../../public/assets/img/projeto_006.png">
+                    <img src="assets/img/projeto_006.png">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../../../public/assets/img/projeto_007.png">
+                    <img src="assets/img/projeto_007.png">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../../../public/assets/img/projeto_008.png">
+                    <img src="assets/img/projeto_008.png">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../../../public/assets/img/projeto_009.png">
+                    <img src="assets/img/projeto_009.png">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../../../public/assets/img/projeto_010.png">
+                    <img src="assets/img/projeto_010.png">
                 </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -306,8 +306,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<script src="../../../public/assets/js/main.js"></script>
-<script src="../../../public/assets/js/animations.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
 
 <!-- footer -->
 <?php include 'partials/footer.php'; ?>  <!-- footer -->
