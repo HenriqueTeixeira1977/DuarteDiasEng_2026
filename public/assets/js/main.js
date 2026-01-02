@@ -19,8 +19,6 @@ window.addEventListener('scroll', function () {
     }
 });
 
-
-
 // AOS Animation Initialization
 AOS.init({
 duration: 900,
