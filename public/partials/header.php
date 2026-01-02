@@ -50,7 +50,7 @@
 
 <nav class="navbar navbar-expand-lg fixed-top navbar-overlay">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="/">
+        <a class="navbar-brand fw-bold" href="/index.php">
             <img src="assets/img/dudieng-logo-white.png" 
                 class="logo logo-white" 
                 height="50" 
@@ -72,7 +72,7 @@
 
         <div class="collapse navbar-collapse" id="mainMenu">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="../app/views/pages/home.php">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="../app/views/pages/sobre.php">Sobre</a></li>
                 <li class="nav-item"><a class="nav-link" href="../app/views/pages/servicos.php">Serviços</a></li>
                 <li class="nav-item"><a class="nav-link" href="../app/views/pages/projetos.php">Projetos</a></li>
