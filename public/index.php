@@ -296,6 +296,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="assets/js/main.js"></script>
 <script src="assets/js/animations.js"></script>
 
+<script src="/public/assets/js/main.js"></script>
+<script src="/public/assets/js/animations.js"></script>
+
 <!-- footer -->
 <?php include 'partials/footer.php'; ?>  <!-- footer -->
 

@@ -1,7 +1,6 @@
 // Navbar Scroll Effect
 document.addEventListener("scroll", function () {
     const navbar = document.querySelector(".navbar-overlay");
-
     if (window.scrollY > 80) {
         navbar.classList.add("scrolled");
     } else {
@@ -35,13 +34,13 @@ let start = 0;
 const increment = target / (duration / 20);
 
 const update = () => {
-start += increment;
-if (start < target) {
-el.innerText = Math.floor(start);
-requestAnimationFrame(update);
-} else {
-el.innerText = target;
-}
+    start += increment;
+    if (start < target) {
+        el.innerText = Math.floor(start);
+        requestAnimationFrame(update);
+    } else {
+        el.innerText = target;
+    }
 };
 update();
 };

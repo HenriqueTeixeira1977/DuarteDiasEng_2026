@@ -56,7 +56,7 @@
                 height="50" 
                 alt="Duarte Dias Engenharia">
 
-            <img src="public/assets/img/dudieng-logo-dark.png" 
+            <img src="assets/img/dudieng-logo-dark.png" 
                 class="logo logo-dark" 
                 height="50" 
                 alt="Duarte Dias Engenharia">
@@ -109,8 +109,12 @@
     </div>
 </nav>
 -->
-<script src="../../public/assets/js/main.js"></script>
-<script src="../../public/assets/js/animations.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
+
+<script src="/public/assets/js/main.js"></script>
+<script src="/public/assets/js/animations.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
