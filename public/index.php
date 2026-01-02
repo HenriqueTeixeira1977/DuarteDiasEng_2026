@@ -1,14 +1,15 @@
 <?php
-require_once __DIR__ . '../config.php';
-require_once __DIR__ . '../app/controllers/ContatoController.php';
+// Caminho correto: sobe um nível da pasta public/ para a raiz
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../app/controllers/ContatoController.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     (new ContatoController())->enviar();
 }
 ?>
 
-<?php include '../app/views/partials/header.php'; ?>
-
+<!--  HEADER  -->
+<?php include 'partials/header.php'; ?>
 
 <!-- HERO -->
 <!--
@@ -308,6 +309,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="../../../public/assets/js/main.js"></script>
 <script src="../../../public/assets/js/animations.js"></script>
 
-<?php include '../../views/partials/footer.php'; ?>
+<!-- footer -->
+<?php include 'partials/footer.php'; ?>  <!-- footer -->
 
 

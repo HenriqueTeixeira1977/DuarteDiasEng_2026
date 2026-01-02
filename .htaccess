@@ -1,10 +1,10 @@
 RewriteEngine On
+RewriteBase /
 
-# Redireciona todas as requisições para a pasta public/
+# Ignora se já estiver em /public/ ou se for arquivo/diretório real
 RewriteCond %{REQUEST_URI} !^/public/
-RewriteRule ^(.*)$ /public/$1 [L]
-
-# Se acessar exatamente a raiz, redireciona para public/index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^$ /public/index.php [L]
+
+# Rewrite interno para /public/index.php (para raiz e outras URLs)
+RewriteRule ^(.*)$ /public/index.php [L]

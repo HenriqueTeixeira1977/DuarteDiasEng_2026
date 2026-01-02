@@ -1,4 +1,4 @@
-<?php include '../../views/partials/header.php'; ?>
+<?php include '../partials/header.php'; ?>
 
 <!-- HERO -->
 <!--
@@ -292,4 +292,4 @@
 <script src="../../../public/assets/js/main.js"></script>
 <script src="../../../public/assets/js/animations.js"></script>
 
-<?php include '../../views/partials/footer.php'; ?>
+<?php include '../partials/footer.php'; ?>
