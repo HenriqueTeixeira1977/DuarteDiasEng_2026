@@ -1,302 +1,295 @@
 <?php
-// Caminho correto: sobe um nível da pasta public/ para a raiz
-require_once __DIR__ . '/../config.php';
-require_once __DIR__ . '/../app/controllers/ContatoController.php';
+/**
+ * Página "Em Construção / Em Breve" - Duarte Dias Engenharia
+ * ------------------------------------------------------------
+ * Como usar:
+ * 1) Ajuste a variável $dataLancamento abaixo para a data/hora real de lançamento.
+ * 2) Coloque este arquivo na raiz do projeto (ou onde preferir) e aponte o domínio
+ *    para ele enquanto o site principal está em construção.
+ * 3) O formulário de e-mail salva os cadastros em "inscritos.txt" (mesma pasta).
+ *    Se quiser enviar por e-mail em vez de salvar em arquivo, veja o bloco
+ *    "PROCESSAMENTO DO FORMULÁRIO" mais abaixo.
+ */
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    (new ContatoController())->enviar();
+// ==== CONFIGURAÇÕES ====================================================
+$dataLancamento = '2026-09-01 00:00:00'; // ajuste a data prevista de lançamento
+$emailContato   = 'contato@duartediasengenharia.com.br';
+$whatsapp       = '5519997339148';
+$whatsappExibe  = '(19) 99733-9148';
+$cidade         = 'Campinas - SP';
+$instagram      = 'https://instagram.com/duartediasengenharia'; // ajuste se necessário
+$linkedin       = 'https://linkedin.com/company/duartediasengenharia'; // ajuste se necessário
+$arquivoEmails  = __DIR__ . '/inscritos.txt';
+
+// ==== PROCESSAMENTO DO FORMULÁRIO ======================================
+$mensagem = '';
+$sucesso  = false;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
+    $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
+
+    if ($email) {
+        // Salva o e-mail em arquivo local (simples, sem depender de servidor SMTP)
+        $linha = date('Y-m-d H:i:s') . ' - ' . $email . PHP_EOL;
+        @file_put_contents($arquivoEmails, $linha, FILE_APPEND | LOCK_EX);
+
+        // Se preferir enviar por e-mail em vez de (ou além de) salvar em arquivo,
+        // descomente as linhas abaixo e configure um servidor de e-mail (ex: PHPMailer/SMTP):
+        // $assunto = 'Novo cadastro - Página Em Breve';
+        // $corpo   = "Novo e-mail cadastrado: $email";
+        // mail($emailContato, $assunto, $corpo);
+
+        $sucesso  = true;
+        $mensagem = 'Obrigado! Avisaremos você assim que o site estiver pronto.';
+    } else {
+        $mensagem = 'Por favor, informe um e-mail válido.';
+    }
 }
+
+// ==== CÁLCULO DA CONTAGEM REGRESSIVA (usado só como fallback inicial) ==
+$timestampLancamento = strtotime($dataLancamento);
 ?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Em Breve | Duarte Dias Engenharia</title>
+<meta name="description" content="O novo site da Duarte Dias Engenharia está em construção. Em breve, novidades sobre projetos, laudos e consultoria técnica.">
 
-<!--  HEADER  -->
-<?php include 'partials/header.php'; ?>
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-<!-- HERO -->
-<!--
-<section class="hero d-flex align-items-center text-white">
-    <div class="container text-center">
-        <h1 class="display-4 fw-bold mb-3 fade-in">Duarte Dias Engenharia</h1>
-        <p class="lead mb-4 fade-in-delay">Excelência em projetos, soluções estruturais e consultoria técnica.</p>
-        <a href="#servicos" class="btn btn-primary btn-lg px-5 py-3 shadow-lg">Conheça nossos serviços</a>
+<style>
+  :root{
+    --dd-dark:#0d1b2a;
+    --dd-accent:#c9a24b; /* dourado sóbrio, remete a "excelência/engenharia" */
+    --dd-accent-hover:#b8912f;
+    --dd-text-light:#f5f5f5;
+  }
+
+  html,body{ height:100%; }
+
+  body{
+    font-family:'Poppins', sans-serif;
+    color:var(--dd-text-light);
+    background:
+      linear-gradient(180deg, rgba(13,27,42,.82) 0%, rgba(13,27,42,.90) 60%, rgba(13,27,42,.96) 100%),
+      url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1920&auto=format&fit=crop')
+      center/cover no-repeat fixed;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .brand-box{
+    border:2px solid var(--dd-text-light);
+    display:inline-block;
+    padding:10px 22px;
+    letter-spacing:2px;
+  }
+  .brand-box .brand-eng{
+    font-weight:300;
+    font-size:1rem;
+  }
+  .brand-box .brand-name{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:1.4rem;
+  }
+
+  h1.title{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:clamp(1.8rem, 4vw, 3rem);
+  }
+
+  .subtitle{
+    letter-spacing:3px;
+    font-size:.8rem;
+    color:#c8d0d8;
+  }
+
+  .countdown-item{
+    min-width:90px;
+  }
+  .countdown-number{
+    font-family:'Playfair Display', serif;
+    font-weight:700;
+    font-size:clamp(2.2rem, 5vw, 3.5rem);
+    line-height:1;
+  }
+  .countdown-label{
+    font-size:.75rem;
+    letter-spacing:2px;
+    color:#c8d0d8;
+  }
+  .countdown-sep{
+    width:1px;
+    background:rgba(255,255,255,.25);
+    align-self:stretch;
+    margin:0 1.25rem;
+  }
+
+  .btn-accent{
+    background-color:var(--dd-accent);
+    border-color:var(--dd-accent);
+    color:#1a1a1a;
+    font-weight:600;
+    letter-spacing:1px;
+  }
+  .btn-accent:hover{
+    background-color:var(--dd-accent-hover);
+    border-color:var(--dd-accent-hover);
+    color:#1a1a1a;
+  }
+
+  .form-control-dark{
+    background-color:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.35);
+    color:#fff;
+  }
+  .form-control-dark::placeholder{ color:#d7d7d7; }
+  .form-control-dark:focus{
+    background-color:rgba(255,255,255,.14);
+    border-color:var(--dd-accent);
+    color:#fff;
+    box-shadow:0 0 0 .2rem rgba(201,162,75,.25);
+  }
+
+  .social-icon{
+    width:40px; height:40px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:50%;
+    color:#fff;
+    transition:all .2s ease-in-out;
+    text-decoration:none;
+  }
+  .social-icon:hover{
+    background-color:var(--dd-accent);
+    border-color:var(--dd-accent);
+    color:#1a1a1a;
+  }
+
+  footer.contact-line{
+    font-size:.85rem;
+    color:#c8d0d8;
+  }
+
+  .alert-inscricao{
+    max-width:480px;
+    margin:0 auto 1rem auto;
+  }
+</style>
+</head>
+<body>
+
+<main class="container flex-grow-1 d-flex flex-column align-items-center justify-content-center text-center py-5">
+
+  <!-- Logo / marca -->
+  <div class="brand-box mb-4">
+    <span class="brand-eng">DUARTE DIAS</span> <span class="brand-name">ENGENHARIA</span>
+  </div>
+
+  <h1 class="title mb-2">Nosso novo site está quase pronto</h1>
+  <p class="subtitle text-uppercase mb-5">Tempo restante para o lançamento</p>
+
+  <!-- Contador regressivo -->
+  <div class="d-flex align-items-start justify-content-center mb-5" id="countdown">
+    <div class="countdown-item">
+      <div class="countdown-number" id="days">00</div>
+      <div class="countdown-label text-uppercase">Dias</div>
     </div>
-</section>
--->
-<section class="hero d-flex align-items-center text-white">
-    <div class="container text-center" data-aos="fade-up">
-        <h1 class="display-4 fw-bold mb-3">Duarte Dias Engenharia</h1>
-        <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">
-            Excelência em projetos, soluções estruturais e consultoria técnica.
-        </p>
-        <a href="#servicos"
-        class="btn btn-primary btn-lg px-5 py-3 shadow-lg"
-        data-aos="zoom-in"
-        data-aos-delay="400">
-        Conheça nossos serviços
-        </a>
+    <div class="countdown-sep d-none d-sm-block"></div>
+    <div class="countdown-item">
+      <div class="countdown-number" id="hours">00</div>
+      <div class="countdown-label text-uppercase">Horas</div>
     </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features py-5 bg-light">
-    <div class="container">
-        <div class="row text-center mb-5">
-            <h2 class="fw-bold text-secondary">Por que escolher a Duarte Dias?</h2>
-        </div>
-
-        <div class="row g-4">
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-box p-4 shadow-sm rounded bg-white h-100">
-                    <i class="bi bi-shield-check display-5 text-primary"></i>
-                    <h4 class="mt-3 fw-bold">Segurança e Confiabilidade</h4>
-                    <p>Projetos executados com precisão, responsabilidade e certificações.</p>
-                </div>
-            </div>
-
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-box p-4 shadow-sm rounded bg-white h-100">
-                    <i class="bi bi-gear-wide-connected display-5 text-primary"></i>
-                    <h4 class="mt-3 fw-bold">Tecnologia</h4>
-                    <p>Soluções modernas para garantir eficiência e resultados superiores.</p>
-                </div>
-            </div>
-
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="feature-box p-4 shadow-sm rounded bg-white h-100">
-                    <i class="bi bi-award display-5 text-primary"></i>
-                    <h4 class="mt-3 fw-bold">Equipe Especializada</h4>
-                    <p>Profissionais experientes e qualificados para atender a qualquer demanda.</p>
-                </div>
-            </div>
-        </div>
+    <div class="countdown-sep d-none d-sm-block"></div>
+    <div class="countdown-item">
+      <div class="countdown-number" id="minutes">00</div>
+      <div class="countdown-label text-uppercase">Minutos</div>
     </div>
-</section>
-
-<!-- SERVIÇOS -->
-<section id="servicos" class="servicos py-5">   
-    <div class="container">
-        <div class="row text-center mb-5">
-            <h2 class="fw-bold">Nossos Serviços</h2>
-            <p class="text-muted">Soluções completas para sua obra ou projeto</p>
-        </div>
-
-        <div class="row g-4">
-
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                <div class="card h-100 shadow-sm border-0 service-card">
-                    <img src="assets/img/projeto1.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Projetos Estruturais</h5>
-                        <p>Desenvolvimento de projetos completos e detalhados para obras residenciais e comerciais.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                <div class="card h-100 shadow-sm border-0 service-card">
-                    <img src="assets/img/projeto2.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Consultoria Técnica</h5>
-                        <p>Orientações especializadas para execução, regularização e análise de estruturas.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                <div class="card h-100 shadow-sm border-0 service-card">
-                    <img src="assets/img/projeto3.jpg" class="card-img-top">
-                    <div class="card-body">
-                        <h5 class="fw-bold">Laudos e Vistorias</h5>
-                        <p>Inspeções completas com emissão de relatórios técnicos detalhados.</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+    <div class="countdown-sep d-none d-sm-block"></div>
+    <div class="countdown-item">
+      <div class="countdown-number" id="seconds">00</div>
+      <div class="countdown-label text-uppercase">Segundos</div>
     </div>
-</section>
+  </div>
 
-<!-- BANNER PARALLAX -->
-<section class="banner-parallax d-flex align-items-center text-center text-white">
-    <div class="container">
-        <h2 class="display-6 fw-bold mb-3">Compromisso com qualidade e precisão</h2>
-        <p class="lead">A segurança da sua obra começa com um projeto bem executado.</p>
+  <p class="subtitle text-uppercase mb-3">Avise-me quando estiver pronto</p>
+
+  <?php if ($mensagem): ?>
+    <div class="alert-inscricao alert <?php echo $sucesso ? 'alert-success' : 'alert-warning'; ?>">
+      <?php echo htmlspecialchars($mensagem); ?>
     </div>
-</section>
+  <?php endif; ?>
 
-<!-- CTA -->
-<section class="cta-section py-5">
-    <div class="container text-center">
-        <h2 class="fw-bold mb-3">Pronto para iniciar seu projeto?</h2>
-        <p class="text-muted mb-4">Entre em contato e receba uma avaliação especializada.</p>
-        <a href="#contato" class="btn btn-primary btn-lg px-5 py-3 shadow">Fale Conosco</a>
+  <form method="POST" action="" class="row g-2 justify-content-center mb-5" style="max-width:480px; width:100%;">
+    <div class="col-8 col-sm-8">
+      <input type="email" name="email" class="form-control form-control-dark form-control-lg" placeholder="SEU E-MAIL" required>
     </div>
-</section>
-
-<!-- SEÇÃO: NÚMEROS ANIMADOS -->
-<section class="py-5 bg-light" id="numeros">
-    <div class="container text-center">
-        <div class="row g-4">
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
-                    <h2 class="fw-bold display-5 text-primary" data-counter="100">0</h2>
-                    <p class="text-muted">Projetos Entregues</p>
-                </div>                
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="counter-box">
-                        <h2 class="fw-bold display-5 text-primary" data-counter="100">0</h2>
-                        <p class="text-muted">Anos de Experiência</p>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="counter-box">
-                        <h2 class="fw-bold display-5 text-primary" data-counter="100">0</h2>
-                        <p class="text-muted">Clientes Atendidos</p>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
-                    <div class="counter-box">
-                        <h2 class="fw-bold display-5 text-primary" data-counter="100">0</h2>
-                        <p class="text-muted">Certificações</p>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+    <div class="col-4 col-sm-4 d-grid">
+      <button type="submit" class="btn btn-accent btn-lg text-uppercase">Inscrever</button>
     </div>
-</section>
+  </form>
 
-<!-- SERVIÇOS PREMIUM -->
-<section class="py-5" id="servicos-premium">
-    <div class="container text-center">
-        <h2 class="fw-bold mb-5">Soluções de Engenharia</h2>
-        <div class="row g-4">
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
-                <div class="premium-card p-4 shadow-sm h-100">
-                    <i class="bi bi-rulers fs-1 text-primary mb-3"></i>
-                    <h5 class="fw-bold">Projeto Estrutural Avançado</h5>
-                    <p class="text-muted">Cálculos, análise e modelagem com softwares profissionais.</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
-                <div class="premium-card p-4 shadow-sm h-100">
-                    <i class="bi bi-shield-check fs-1 text-primary mb-3"></i>
-                    <h5 class="fw-bold">Avaliação e Laudos Técnicos</h5>
-                    <p class="text-muted">Perícias, inspeções e documentação técnica completa.</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
-                <div class="premium-card p-4 shadow-sm h-100">
-                    <i class="bi bi-tools fs-1 text-primary mb-3"></i>
-                    <h5 class="fw-bold">Execução e Acompanhamento</h5>
-                    <p class="text-muted">Gestão e direção de obras com foco em qualidade.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+  <!-- Redes sociais e contato -->
+  <div class="d-flex gap-3 justify-content-center mb-4">
+    <a href="https://wa.me/<?php echo $whatsapp; ?>" target="_blank" rel="noopener" class="social-icon" title="WhatsApp">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="<?php echo htmlspecialchars($instagram); ?>" target="_blank" rel="noopener" class="social-icon" title="Instagram">
+      <i class="bi bi-instagram"></i>
+    </a>
+    <a href="<?php echo htmlspecialchars($linkedin); ?>" target="_blank" rel="noopener" class="social-icon" title="LinkedIn">
+      <i class="bi bi-linkedin"></i>
+    </a>
+    <a href="mailto:<?php echo htmlspecialchars($emailContato); ?>" class="social-icon" title="E-mail">
+      <i class="bi bi-envelope"></i>
+    </a>
+  </div>
 
-<!-- SLIDER DE PROJETOS (SWIPER) -->
-<section class="py-5 bg-light" id="slider-projetos">
-    <div class="container">
-        <h2 class="fw-bold text-center mb-4">Projetos em Destaque</h2>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="assets/img/projeto_001.png">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/projeto_002.png">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/projeto_003.png">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/projeto_004.png">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/projeto_005.png">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/projeto_006.png">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/projeto_007.png">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/projeto_008.png">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/projeto_009.png">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/projeto_010.png">
-                </div>
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </div>
-</section>
+</main>
 
-<!-- CONTATO -->
-<section id="contato" class="contato py-5 bg-light">
-    <div class="container">
-        <div class="row text-center mb-4">
-            <h2 class="fw-bold">Contato</h2>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <!--  
-                <form action="/contato/enviar" method="POST" class="p-4 shadow rounded bg-white">   
-                    <input type="hidden" name="origem" value="home">
-                </form>
-                -->
+<footer class="text-center contact-line pb-4">
+  <div><?php echo htmlspecialchars($whatsappExibe); ?> &nbsp;·&nbsp; <?php echo htmlspecialchars($emailContato); ?> &nbsp;·&nbsp; <?php echo htmlspecialchars($cidade); ?></div>
+  <div class="mt-1" style="font-size:.75rem; color:#8a97a3;">&copy; <?php echo date('Y'); ?> Duarte Dias Engenharia — Todos os direitos reservados.</div>
+</footer>
 
-                <form action="/index.php" method="POST" class="p-4 shadow rounded bg-white">
-                    <!-- ... campos iguais ... -->
-                    <input type="hidden" name="action" value="enviar_contato"> <!-- opcional para identificar -->
-    
-                    <div class="mb-3">
-                        <label class="form-label">Nome</label>
-                        <input type="text" name="nome" class="form-control" required>
-                    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Data de lançamento vinda do PHP (timestamp em segundos, convertido para ms)
+  const dataLancamento = <?php echo $timestampLancamento; ?> * 1000;
 
-                    <div class="mb-3">
-                        <label class="form-label">WhatsApp</label>
-                        <input type="text" name="telefone" class="form-control" required>
-                    </div>
+  function atualizarContador() {
+    const agora = new Date().getTime();
+    let diff = dataLancamento - agora;
 
-                    <div class="mb-3">
-                        <label class="form-label">E-mail</label>
-                        <input type="email" name="email" class="form-control">
-                    </div>
+    if (diff < 0) diff = 0;
 
-                    <div class="mb-3">
-                        <label class="form-label">Mensagem</label>
-                        <textarea name="mensagem" class="form-control" rows="4" required></textarea>
-                    </div>
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diff % (1000 * 60)) / 1000);
 
-                    <button class="btn btn-primary w-100 py-2">Enviar</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
+    document.getElementById('days').textContent = String(dias).padStart(2, '0');
+    document.getElementById('hours').textContent = String(horas).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutos).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(segundos).padStart(2, '0');
+  }
 
-<!-- PARALLAX PROFISSIONAL -->
-<section class="parallax-section d-flex align-items-center text-center text-white">
-    <div class="container">
-        <h2 class="display-6 fw-bold mb-3">Excelência em Engenharia Estrutural</h2>
-        <p class="lead">Tecnologia, precisão e responsabilidade em cada projeto</p>
-    </div>
-</section>
+  atualizarContador();
+  setInterval(atualizarContador, 1000);
+</script>
 
-<!-- SCRIPTS  -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script src="assets/js/main.js"></script>
-<script src="assets/js/animations.js"></script>
-
-<!-- FOOTER -->
-<?php include 'partials/footer.php'; ?>  <!-- footer -->
-
-
+</body>
+</html>
