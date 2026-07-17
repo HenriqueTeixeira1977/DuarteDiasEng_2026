@@ -12,7 +12,7 @@
  */
 
 // ==== CONFIGURAÇÕES ====================================================
-$dataLancamento = '2026-09-01 00:00:00'; // ajuste a data prevista de lançamento
+$dataLancamento = '2026-08-17 00:00:00'; // ajuste a data prevista de lançamento
 $emailContato   = 'contato@duartediasengenharia.com.br';
 $whatsapp       = '5519997339148';
 $whatsappExibe  = '(19) 99733-9148';
