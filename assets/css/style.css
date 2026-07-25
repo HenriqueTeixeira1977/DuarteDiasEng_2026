@@ -1,0 +1,541 @@
+/* =========================================================
+   Duarte Dias Engenharia Civil - Pintura e Restauração de Fachadas
+   ========================================================= */
+
+:root{
+  --navy:#101d34;
+  --navy-2:#182a4a;
+  --accent:#d9622b;      /* terracota / laranja - remete a tinta e fachada */
+  --accent-dark:#b94f1f;
+  --gray-bg:#f4f5f7;
+  --text-muted:#5b6472;
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family:'Poppins', sans-serif;
+  color:#2b2f36;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family:'Montserrat', sans-serif;
+  font-weight:700;
+  color:var(--navy);
+}
+
+a{ text-decoration:none; }
+
+.text-accent{ color:var(--accent); }
+.bg-navy{ background-color:var(--navy); }
+.bg-gray{ background-color:var(--gray-bg); }
+
+.btn-accent{
+  background-color:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
+  font-weight:600;
+}
+.btn-accent:hover{
+  background-color:var(--accent-dark);
+  border-color:var(--accent-dark);
+  color:#fff;
+}
+.btn-outline-light-custom{
+  border:1.5px solid rgba(255,255,255,.7);
+  color:#fff;
+  font-weight:600;
+}
+.btn-outline-light-custom:hover{
+  background-color:#fff;
+  color:var(--navy);
+}
+.btn-outline-navy{
+  border:1.5px solid var(--navy);
+  color:var(--navy);
+  font-weight:600;
+}
+.btn-outline-navy:hover{
+  background-color:var(--navy);
+  color:#fff;
+}
+
+.section-eyebrow{
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:.8rem;
+  font-weight:700;
+  color:var(--accent);
+}
+
+/* ===== Header / Navbar ===== */
+.site-header{
+  background-color:var(--navy);
+}
+.navbar .nav-link{
+  color:#e7eaf0;
+  font-weight:500;
+  padding:.5rem 1rem !important;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active{
+  color:#fff;
+  font-weight:600;
+}
+.navbar .dropdown-menu{
+  border:none;
+  border-radius:.5rem;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+.navbar .dropdown-item:hover{
+  background-color:var(--gray-bg);
+  color:var(--accent);
+}
+
+.whatsapp-float{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  width:58px;
+  height:58px;
+  background-color:#25D366;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.7rem;
+  box-shadow:0 6px 20px rgba(0,0,0,.25);
+  z-index:1050;
+  animation:pulse 2.4s infinite;
+}
+.whatsapp-float:hover{ color:#fff; transform:scale(1.06); }
+@keyframes pulse{
+  0%{ box-shadow:0 0 0 0 rgba(37,211,102,.5); }
+  70%{ box-shadow:0 0 0 14px rgba(37,211,102,0); }
+  100%{ box-shadow:0 0 0 0 rgba(37,211,102,0); }
+}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;
+  min-height:88vh;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(180deg, rgba(16,29,52,.75) 0%, rgba(16,29,52,.55) 40%, rgba(16,29,52,.92) 100%),
+    url('../img/projetos/hero-fachada.jpg') center 30%/cover no-repeat;
+}
+.hero h1{
+  color:#fff;
+  font-size:clamp(2.1rem, 4.2vw, 3.4rem);
+  line-height:1.15;
+}
+.hero p.lead{
+  color:#dfe4ec;
+  font-size:1.15rem;
+  max-width:640px;
+}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.35);
+  color:#fff;
+  padding:.4rem .9rem;
+  border-radius:50px;
+  font-size:.82rem;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+/* ===== Page hero (páginas internas) ===== */
+.page-hero{
+  background:
+    linear-gradient(180deg, rgba(16,29,52,.82), rgba(16,29,52,.88)),
+    url('../img/projetos/capa-restauracao.jpg') center 20%/cover no-repeat;
+  padding:7rem 0 6.5rem 0;
+  color:#fff;
+}
+.page-hero h1{ color:#fff; font-size:clamp(1.8rem, 3.4vw, 2.6rem); }
+.page-hero .breadcrumb-custom{
+  color:#c7cedb;
+  font-size:.9rem;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.page-hero .breadcrumb-custom a{ color:#fff; }
+
+/* ===== Cards de serviço ===== */
+.service-card{
+  background:#fff;
+  border-radius:16px;
+  padding:2.2rem 1.8rem;
+  height:100%;
+  box-shadow:0 10px 30px rgba(16,29,52,.06);
+  border:1px solid rgba(16,29,52,.06);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(16,29,52,.12);
+}
+.service-icon{
+  width:64px;
+  height:64px;
+  border-radius:14px;
+  background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.6rem;
+  margin-bottom:1.2rem;
+}
+
+/* ===== Diferenciais ===== */
+.diferencial-item{
+  display:flex;
+  gap:1rem;
+  align-items:flex-start;
+}
+.diferencial-icon{
+  flex:0 0 auto;
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:rgba(217,98,43,.12);
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.2rem;
+}
+
+/* ===== Stats ===== */
+.stat-number{
+  font-family:'Montserrat', sans-serif;
+  font-weight:800;
+  font-size:clamp(2rem, 4vw, 2.8rem);
+  color:#fff;
+}
+.stat-label{
+  color:#c7cedb;
+  font-size:.85rem;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+/* ===== Galeria de projetos ===== */
+.gallery-item{
+  position:relative;
+  overflow:hidden;
+  border-radius:12px;
+  aspect-ratio:4/5;
+  cursor:pointer;
+}
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .4s ease;
+}
+.gallery-item:hover img{ transform:scale(1.08); }
+.gallery-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(16,29,52,0) 40%, rgba(16,29,52,.85) 100%);
+  display:flex;
+  align-items:flex-end;
+  padding:1rem;
+  opacity:0;
+  transition:opacity .3s ease;
+}
+.gallery-item:hover .gallery-overlay{ opacity:1; }
+.gallery-overlay span{
+  color:#fff;
+  font-weight:600;
+  font-size:.95rem;
+}
+
+/* ===== Sobre ===== */
+.about-photo{
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 20px 45px rgba(16,29,52,.15);
+}
+.about-photo img{ width:100%; height:100%; object-fit:cover; }
+
+.valor-item{
+  border-left:3px solid var(--accent);
+  padding-left:1rem;
+}
+
+/* ===== CTA banner ===== */
+.cta-banner{
+  background:linear-gradient(120deg, var(--navy) 0%, var(--navy-2) 100%);
+  border-radius:20px;
+  padding:3.5rem 2.5rem;
+  color:#fff;
+}
+
+/* ===== Contato ===== */
+.contact-card{
+  background:#fff;
+  border-radius:16px;
+  padding:2rem;
+  box-shadow:0 10px 30px rgba(16,29,52,.06);
+  height:100%;
+}
+.form-control-custom{
+  border:1.5px solid #dfe3e9;
+  border-radius:10px;
+  padding:.7rem 1rem;
+}
+.form-control-custom:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 .2rem rgba(217,98,43,.15);
+}
+.contact-info-item{
+  display:flex;
+  gap:1rem;
+  align-items:flex-start;
+  margin-bottom:1.4rem;
+}
+.contact-info-icon{
+  flex:0 0 auto;
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:var(--navy);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.map-frame{
+  border-radius:16px;
+  overflow:hidden;
+  border:0;
+  width:100%;
+  min-height:320px;
+}
+
+/* ===== Footer ===== */
+.site-footer{
+  background-color:var(--navy);
+  color:#c7cedb;
+}
+.footer-text{ color:#aeb6c4; font-size:.92rem; }
+.footer-heading{
+  color:#fff;
+  font-size:.9rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:1rem;
+}
+.footer-links{ list-style:none; padding:0; margin:0; }
+.footer-links li{ margin-bottom:.6rem; font-size:.92rem; color:#c7cedb; }
+.footer-links a{ color:#c7cedb; }
+.footer-links a:hover{ color:var(--accent); }
+.footer-divider{ border-color:rgba(255,255,255,.12); margin:2rem 0 1.5rem 0; }
+.footer-bottom{ color:#8892a3; }
+
+.social-icon{
+  width:38px; height:38px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:50%;
+  color:#fff;
+  transition:all .2s ease;
+}
+.social-icon:hover{
+  background-color:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
+}
+
+/* ===== Blog ===== */
+.blog-card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(16,29,52,.06);
+  border:1px solid rgba(16,29,52,.06);
+  transition:transform .25s ease, box-shadow .25s ease;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+.blog-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(16,29,52,.12);
+}
+.blog-card-img{background:var(--gray-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position:relative;
+  aspect-ratio:16/10;
+  overflow:hidden;
+}
+.blog-card-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .4s ease;
+}
+.blog-card:hover .blog-card-img img{ transform:scale(1.06); }
+.blog-badge{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:var(--accent);
+  color:#fff;
+  font-size:.72rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  padding:.3rem .7rem;
+  border-radius:50px;
+}
+.blog-card-body{
+  padding:1.4rem;
+  display:flex;
+  flex-direction:column;
+  flex-grow:1;
+}
+.blog-card-date{
+  font-size:.78rem;
+  color:var(--text-muted);
+  text-transform:uppercase;
+  letter-spacing:.5px;
+}
+.blog-card-title{
+  color:var(--navy);
+  margin:.5rem 0 .6rem 0;
+  font-size:1.08rem;
+  line-height:1.35;
+}
+.blog-card-excerpt{
+  color:var(--text-muted);
+  font-size:.92rem;
+  flex-grow:1;
+  margin-bottom:1rem;
+}
+
+/* ===== Artigo do blog ===== */
+.article-meta{
+  color:#c7cedb;
+  font-size:.85rem;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+}
+.article-cover{
+  border-radius:16px;
+  overflow:hidden;
+  margin-top:-3rem;
+  margin-bottom:2.5rem;
+  box-shadow:0 20px 45px rgba(16,29,52,.18);
+  position:relative;
+  z-index:2;
+}
+@media (max-width:768px){
+  .page-hero{ padding:6rem 0 5rem 0; }
+  .article-cover{ margin-top:-2rem; }
+}
+.article-cover img{
+  width:100%;
+  /*max-height:460px;*/
+  object-fit:cover;
+}
+.article-body{
+  font-size:1.05rem;
+  line-height:1.8;
+  color:#3a3f47;
+}
+.article-body h2{
+  font-size:1.4rem;
+  margin-top:2.2rem;
+  margin-bottom:1rem;
+}
+.article-body h3{
+  font-size:1.15rem;
+  margin-top:1.6rem;
+  margin-bottom:.8rem;
+  color:var(--navy);
+}
+.article-body p{ margin-bottom:1.2rem; }
+.article-body ul, .article-body ol{ margin-bottom:1.2rem; padding-left:1.4rem; }
+.article-body li{ margin-bottom:.5rem; }
+.article-body blockquote{
+  border-left:4px solid var(--accent);
+  padding:.6rem 1.2rem;
+  color:var(--navy);
+  font-style:italic;
+  background:var(--gray-bg);
+  border-radius:0 10px 10px 0;
+  margin:1.6rem 0;
+}
+.article-cta-box{
+  background:var(--gray-bg);
+  border-radius:16px;
+  padding:1.8rem;
+  margin:2.2rem 0;
+  border-left:4px solid var(--accent);
+}
+.share-icons a{
+  width:38px; height:38px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #dfe3e9;
+  border-radius:50%;
+  color:var(--navy);
+  margin-right:.5rem;
+}
+.share-icons a:hover{
+  background-color:var(--accent);
+  border-color:var(--accent);
+  color:#fff;
+}
+
+/* ===== Utilidades ===== */
+.section-padding{ padding:5.5rem 0; }
+@media (max-width:768px){
+  .section-padding{ padding:3.5rem 0; }
+}
+
+/* ===== FAQ (Accordion) ===== */
+.faq-accordion .accordion-item{
+  border:none;
+  border-radius:12px !important;
+  margin-bottom:1rem;
+  overflow:hidden;
+  box-shadow:0 2px 10px rgba(16,29,52,.06);
+}
+.faq-accordion .accordion-button{
+  font-weight:600;
+  color:var(--navy);
+  background-color:#fff;
+  padding:1.15rem 1.4rem;
+}
+.faq-accordion .accordion-button:not(.collapsed){
+  color:var(--accent);
+  background-color:#fff;
+  box-shadow:none;
+}
+.faq-accordion .accordion-button:focus{
+  box-shadow:0 0 0 .2rem rgba(217,98,43,.15);
+}
+.faq-accordion .accordion-button::after{
+  background-size:1.1rem;
+}
+.faq-accordion .accordion-body{
+  padding:0 1.4rem 1.4rem 1.4rem;
+  line-height:1.7;
+}

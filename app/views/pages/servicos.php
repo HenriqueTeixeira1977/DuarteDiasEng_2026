@@ -1,178 +1,116 @@
-<?php include '../../views/partials/header.php'; ?>
+<?php
+require_once __DIR__ . '/../../../config.php';
+$activePage = 'servicos';
+$pageTitle = 'Serviços: Pintura e Restauração de Fachadas | Duarte Dias';
+$pageDescription = 'Pintura de fachadas, restauração de fachadas e assessoria condominial em Campinas e região. Conheça os serviços da Duarte Dias Engenharia Civil.';
+require __DIR__ . '/../../includes/header.php';
+?>
 
-<!-- SEUS CSS (CAMINHO ABSOLUTO) -->
-<link rel="stylesheet" href="../../../public/assets/css/servicos.css">
-
-
-<!-- AOS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-<!-- HERO SERVIÇOS -->
-<section class="hero-servicos d-flex align-items-center text-white">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8" data-aos="fade-up">
-                <h1 class="display-5 fw-bold">Nossos Serviços</h1>
-                <p class="lead mt-3">
-                    Soluções completas em engenharia civil, com foco em segurança, eficiência e qualidade técnica.
-                </p>
-            </div>
-        </div>
-    </div>
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb-custom mb-2"><a href="<?php echo BASE_URL; ?>/index.php">Home</a> / Serviços</div>
+    <h1>Nossos Serviços</h1>
+  </div>
 </section>
 
-<!-- LISTA DE SERVIÇOS -->
-<section class="py-5">
-    <div class="container">
-
-        <div class="row text-center mb-5">
-            <h2 class="fw-bold" data-aos="fade-up">O que Fazemos</h2>
-            <p class="text-muted mt-2" data-aos="fade-up" data-aos-delay="100">
-                Atuamos em todas as etapas do seu projeto.
-            </p>
-        </div>
-
-        <div class="row g-4">
-
-            <!-- Serviço 1 -->
-            <div class="col-md-4" data-aos="fade-up">
-                <div class="service-card h-100">
-                    <div class="icon">🏗️</div>
-                    <h4>Projetos Estruturais</h4>
-                    <p>
-                        Elaboração de projetos estruturais em concreto armado, aço e madeira,
-                        seguindo rigorosamente as normas técnicas.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Serviço 2 -->
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-card h-100">
-                    <div class="icon">📐</div>
-                    <h4>Consultoria Técnica</h4>
-                    <p>
-                        Análise técnica especializada para obras, reformas e viabilidade de projetos,
-                        garantindo decisões seguras.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Serviço 3 -->
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-card h-100">
-                    <div class="icon">🧾</div>
-                    <h4>Laudos e Perícias</h4>
-                    <p>
-                        Emissão de laudos técnicos, pareceres e perícias judiciais e extrajudiciais,
-                        com responsabilidade técnica.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Serviço 4 -->
-            <div class="col-md-4" data-aos="fade-up">
-                <div class="service-card h-100">
-                    <div class="icon">🏢</div>
-                    <h4>Acompanhamento de Obras</h4>
-                    <p>
-                        Fiscalização e acompanhamento técnico para garantir a execução conforme
-                        projeto e normas vigentes.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Serviço 5 -->
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-card h-100">
-                    <div class="icon">🛠️</div>
-                    <h4>Reformas e Adequações</h4>
-                    <p>
-                        Projetos e acompanhamento de reformas estruturais e adequações técnicas
-                        para segurança e desempenho.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Serviço 6 -->
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-card h-100">
-                    <div class="icon">📊</div>
-                    <h4>Regularizações e ART</h4>
-                    <p>
-                        Regularização de obras, emissão de ART e suporte técnico junto a órgãos
-                        competentes.
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </div>
+<section class="section-padding pb-3">
+  <div class="container text-center">
+    <p class="text-muted mx-auto" style="max-width:680px;">Atuamos em todo o ciclo de cuidado da fachada predial: diagnóstico técnico, restauração estrutural, pintura de alta performance e assessoria completa ao síndico.</p>
+  </div>
 </section>
 
-<!-- PROCESSO DE TRABALHO -->
-<section class="py-5 bg-light">
-    <div class="container">
-
-        <div class="row text-center mb-5">
-            <h2 class="fw-bold" data-aos="fade-up">Nosso Processo</h2>
+<!-- ===================== PINTURA DE FACHADAS ===================== -->
+<section id="pintura" class="section-padding pt-3">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6">
+        <div class="about-photo">
+          <img src="<?php echo BASE_URL; ?>/assets/img/projetos/projeto-07.jpg" alt="Pintura de fachada predial" loading="lazy">
         </div>
-
-        <div class="row g-4 text-center">
-
-            <div class="col-md-3" data-aos="fade-up">
-                <div class="process-step">
-                    <span>1</span>
-                    <h5>Análise</h5>
-                    <p>Entendimento completo das necessidades do cliente.</p>
-                </div>
-            </div>
-
-            <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
-                <div class="process-step">
-                    <span>2</span>
-                    <h5>Planejamento</h5>
-                    <p>Definição das soluções técnicas mais eficientes.</p>
-                </div>
-            </div>
-
-            <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
-                <div class="process-step">
-                    <span>3</span>
-                    <h5>Execução</h5>
-                    <p>Desenvolvimento do projeto com alto padrão técnico.</p>
-                </div>
-            </div>
-
-            <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
-                <div class="process-step">
-                    <span>4</span>
-                    <h5>Acompanhamento</h5>
-                    <p>Suporte e acompanhamento até a conclusão.</p>
-                </div>
-            </div>
-
-        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="service-icon mb-3"><i class="bi bi-brush"></i></div>
+        <h2 class="mb-3">Pintura de Fachadas</h2>
+        <p class="text-muted mb-3">Realizamos a pintura completa de fachadas prediais com técnica de acesso por corda, agilidade e mínimo impacto na rotina do condomínio. Utilizamos tintas de alta performance, resistentes a intempéries, com opções de textura e acabamento conforme o projeto.</p>
+        <ul class="list-unstyled mb-4">
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Lavagem e preparo prévio da superfície</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Selador e fundo preparador</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Tintas acrílicas de alta performance</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Acesso por corda (sem necessidade de andaimes)</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Garantia de serviço</li>
+        </ul>
+        <a href="https://wa.me/<?php echo EMPRESA_WHATSAPP; ?>?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20pintura%20de%20fachada." target="_blank" rel="noopener" class="btn btn-accent px-4">
+          <i class="bi bi-whatsapp me-1"></i> Solicitar orçamento
+        </a>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section py-5 text-white text-center">
-    <div class="container" data-aos="zoom-in">
-        <h2 class="fw-bold mb-3">Precisa de um serviço de engenharia?</h2>
-        <p class="mb-4">Solicite um orçamento e fale com um especialista.</p>
-        <a href="/orcamento" class="btn btn-light btn-lg px-5">Solicitar Orçamento</a>
+<!-- ===================== RESTAURAÇÃO DE FACHADAS ===================== -->
+<section id="restauracao" class="section-padding bg-gray">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6 order-lg-2">
+        <div class="about-photo">
+          <img src="<?php echo BASE_URL; ?>/assets/img/projetos/projeto-01.jpg" alt="Restauração de fachada predial" loading="lazy">
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div class="service-icon mb-3"><i class="bi bi-tools"></i></div>
+        <h2 class="mb-3">Restauração de Fachadas</h2>
+        <p class="text-muted mb-3">Antes de repintar, é essencial tratar a causa dos problemas. Nossa equipe identifica e recupera trincas, fissuras, infiltrações, bolhas e destacamento de reboco, devolvendo a integridade estrutural da fachada antes da pintura final.</p>
+        <ul class="list-unstyled mb-4">
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Diagnóstico técnico das patologias</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Tratamento de trincas e fissuras</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Recuperação de reboco e argamassa</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Impermeabilização de áreas críticas</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Laudo técnico com ART</li>
+        </ul>
+        <a href="https://wa.me/<?php echo EMPRESA_WHATSAPP; ?>?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20restaura%C3%A7%C3%A3o%20de%20fachada." target="_blank" rel="noopener" class="btn btn-accent px-4">
+          <i class="bi bi-whatsapp me-1"></i> Solicitar orçamento
+        </a>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- AOS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 900,
-    once: true
-  });
-</script>
+<!-- ===================== ASSESSORIA CONDOMINIAL ===================== -->
+<section id="assessoria" class="section-padding">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6">
+        <div class="about-photo">
+          <img src="<?php echo BASE_URL; ?>/assets/img/projetos/projeto-11.jpg" alt="Assessoria técnica condominial" loading="lazy">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="service-icon mb-3"><i class="bi bi-clipboard-check"></i></div>
+        <h2 class="mb-3">Assessoria Condominial</h2>
+        <p class="text-muted mb-3">Sabemos que o síndico precisa de segurança técnica e transparência para tomar decisões. Por isso, oferecemos assessoria completa: da vistoria inicial ao acompanhamento da obra, com relatórios claros para prestação de contas em assembleia.</p>
+        <ul class="list-unstyled mb-4">
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Vistoria e diagnóstico predial</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Elaboração de orçamento e cronograma</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Apoio na apresentação em assembleia</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Acompanhamento e fiscalização da obra</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Relatórios periódicos para o síndico</li>
+        </ul>
+        <a href="https://wa.me/<?php echo EMPRESA_WHATSAPP; ?>?text=Ol%C3%A1!%20Gostaria%20de%20assessoria%20t%C3%A9cnica%20para%20meu%20condom%C3%ADnio." target="_blank" rel="noopener" class="btn btn-accent px-4">
+          <i class="bi bi-whatsapp me-1"></i> Falar com um especialista
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-<?php include '../../views/partials/footer.php'; ?>
+<section class="pb-5">
+  <div class="container">
+    <div class="cta-banner text-center">
+      <h2 class="text-white mb-3">Não sabe qual serviço seu condomínio precisa?</h2>
+      <p class="mb-4" style="color:#c7cedb;">Fale com a gente e agende uma avaliação técnica gratuita.</p>
+      <a href="<?php echo BASE_URL; ?>/app/views/pages/contato.php" class="btn btn-accent btn-lg px-4">Entrar em contato</a>
+    </div>
+  </div>
+</section>
+
+<?php require __DIR__ . '/../../includes/footer.php'; ?>

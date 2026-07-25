@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Bloqueia arquivos internos que não fazem sentido serem indexados
+Disallow: /app/includes/
+Disallow: /app/data/
+Disallow: /app/contato-processa.php
+Disallow: /config.php
+Disallow: /admin/
+
+Sitemap: https://duartediasengenharia.com.br/sitemap.xml

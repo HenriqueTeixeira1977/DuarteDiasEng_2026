@@ -1,173 +1,98 @@
-<?php include '../../views/partials/header.php'; ?>
+<?php
+require_once __DIR__ . '/../../../config.php';
+$activePage = 'sobre';
+$pageTitle = 'Sobre Nós | Duarte Dias Engenharia Civil - Campinas/SP';
+$pageDescription = 'Conheça a Duarte Dias Engenharia Civil: especialistas em restauração e pintura de fachadas prediais em Campinas, com equipe certificada para trabalho em altura (NR-35).';
+require __DIR__ . '/../../includes/header.php';
+?>
 
-<link rel="stylesheet" href="../../../public/assets/css/sobre.css">
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-<!-- HERO SOBRE -->
-<section class="hero-sobre text-white">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8" data-aos="fade-up">
-                <h1 class="display-5 fw-bold">Engenharia com responsabilidade e precisão</h1>
-                <p class="lead mt-3">
-                    Atuamos com foco em segurança estrutural, excelência técnica e soluções inteligentes
-                    para obras residenciais, comerciais e industriais.
-                </p>
-            </div>
-        </div>
-    </div>
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb-custom mb-2"><a href="<?php echo BASE_URL; ?>/index.php">Home</a> / Sobre</div>
+    <h1>Sobre a Duarte Dias Engenharia Civil</h1>
+  </div>
 </section>
 
-<!-- QUEM SOMOS -->
-<section class="sobre-conteudo">
-    <div class="container">
-        <div class="row align-items-center g-5">
-
-            <div class="col-md-6" data-aos="fade-right">
-                <img src="../../../public/assets/img/sobre/sobre.jpg"
-                     class="img-fluid sobre-img"
-                     alt="Equipe Duarte Dias Engenharia">
-            </div>
-
-            <div class="col-md-6" data-aos="fade-left">
-                <h2 class="mb-4">Quem Somos</h2>
-
-                <p>
-                    A <strong>Duarte Dias Engenharia</strong> é especializada em projetos estruturais,
-                    consultoria técnica, laudos e acompanhamento de obras, atuando com rigor técnico
-                    e total conformidade com as normas vigentes.
-                </p>
-
-                <p>
-                    Nosso compromisso é entregar soluções seguras, eficientes e economicamente viáveis,
-                    sempre priorizando a qualidade e a tranquilidade dos nossos clientes.
-                </p>
-
-                <ul class="mt-4 list-unstyled">
-                    <li class="mb-2">✔ Engenheiros qualificados e experientes</li>
-                    <li class="mb-2">✔ Atendimento técnico personalizado</li>
-                    <li class="mb-2">✔ Uso de tecnologia e softwares profissionais</li>
-                    <li class="mb-2">✔ Responsabilidade técnica em todos os projetos</li>
-                </ul>
-            </div>
-
+<section class="section-padding">
+  <div class="container">
+    <div class="row align-items-center gy-4 mb-5">
+      <div class="col-lg-6">
+        <span class="section-eyebrow">Nossa história</span>
+        <h2 class="mt-2 mb-3">Engenharia que evoluiu para cuidar da fachada do seu patrimônio</h2>
+        <p class="text-muted">A Duarte Dias nasceu como uma empresa de engenharia civil e, com o tempo, identificou no mercado uma demanda crescente por especialização: a restauração e pintura de fachadas prediais. Hoje concentramos nossa expertise técnica exatamente nesse segmento, oferecendo um serviço mais completo, seguro e especializado para condomínios residenciais, comerciais e industriais.</p>
+        <p class="text-muted">Unimos o conhecimento técnico de engenharia — fundamental para diagnosticar patologias como trincas, infiltrações e destacamento de reboco — à experiência prática de uma equipe treinada para trabalho em altura, garantindo resultado estético e durabilidade estrutural.</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="about-photo">
+          <img src="<?php echo BASE_URL; ?>/assets/img/projetos/projeto-14.jpg" alt="Equipe da Duarte Dias em serviço de fachada" loading="lazy">
         </div>
+      </div>
     </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="valor-item">
+          <h5>Missão</h5>
+          <p class="text-muted mb-0">Proteger e valorizar o patrimônio de nossos clientes por meio de serviços técnicos de excelência em fachadas prediais.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="valor-item">
+          <h5>Visão</h5>
+          <p class="text-muted mb-0">Ser referência em restauração e pintura de fachadas em Campinas e região, reconhecida pela qualidade e segurança.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="valor-item">
+          <h5>Valores</h5>
+          <p class="text-muted mb-0">Segurança, ética, transparência com o síndico e compromisso com prazos e qualidade de execução.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- MISSÃO | VISÃO | VALORES -->
-<section class="mvv-section">
-    <div class="container">
-        <div class="row text-center mb-5">
-            <h2 data-aos="fade-up">Nossa Essência</h2>
+<!-- ===================== SEGURANÇA E EQUIPE ===================== -->
+<section class="section-padding bg-gray">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6 order-lg-2">
+        <div class="about-photo">
+          <img src="<?php echo BASE_URL; ?>/assets/img/projetos/projeto-06.jpg" alt="Técnico em acesso por corda realizando pintura de fachada" loading="lazy">
         </div>
-
-        <div class="row g-4">
-
-            <div class="col-md-4" data-aos="fade-up">
-                <div class="mvv-card">
-                    <i class="bi bi-bullseye"></i>
-                    <h5>Missão</h5>
-                    <p>
-                        Desenvolver soluções de engenharia com alto padrão técnico,
-                        promovendo segurança, qualidade e confiança.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="mvv-card">
-                    <i class="bi bi-eye"></i>
-                    <h5>Visão</h5>
-                    <p>
-                        Ser referência regional em engenharia civil,
-                        reconhecida pela excelência, inovação e credibilidade.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="mvv-card">
-                    <i class="bi bi-award"></i>
-                    <h5>Valores</h5>
-                    <p>
-                        Ética profissional, responsabilidade técnica,
-                        transparência, comprometimento e foco em resultados.
-                    </p>
-                </div>
-            </div>
-
-        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <span class="section-eyebrow">Segurança em primeiro lugar</span>
+        <h2 class="mt-2 mb-3">Equipe qualificada para trabalho em altura</h2>
+        <p class="text-muted mb-4">Todos os nossos profissionais são treinados conforme as normas de segurança para trabalho em altura (NR-35), utilizando equipamentos de acesso por corda (técnica de rapel) e proteção individual certificados. Isso garante um serviço ágil, seguro para a equipe e sem transtornos para o dia a dia do condomínio — sem necessidade de andaimes que ocupem grandes áreas comuns.</p>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Equipe certificada NR-35</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Equipamentos de proteção individual (EPIs)</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Responsável técnico registrado no CREA</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-accent me-2"></i>Seguro e ART em todos os projetos</li>
+        </ul>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- LINHA DO TEMPO -->
-<section class="timeline-section">
-    <div class="container">
-        <div class="row text-center mb-5">
-            <h2 data-aos="fade-up">Nossa Trajetória</h2>
-            <p class="text-muted mt-2" data-aos="fade-up" data-aos-delay="100">
-                Uma história construída com responsabilidade, técnica e evolução constante.
-            </p>
-        </div>
-
-        <div class="timeline">
-
-            <div class="timeline-item" data-aos="fade-right">
-                <div class="timeline-content">
-                    <span class="timeline-year">2015</span>
-                    <p>Fundação da Duarte Dias Engenharia com foco em projetos estruturais.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item" data-aos="fade-left">
-                <div class="timeline-content">
-                    <span class="timeline-year">2018</span>
-                    <p>Expansão dos serviços para consultorias técnicas e laudos especializados.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item" data-aos="fade-right">
-                <div class="timeline-content">
-                    <span class="timeline-year">2021</span>
-                    <p>Atuação em obras de médio e grande porte em diferentes segmentos.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item" data-aos="fade-left">
-                <div class="timeline-content">
-                    <span class="timeline-year">2024</span>
-                    <p>Consolidação como referência regional em engenharia civil.</p>
-                </div>
-            </div>
-
-        </div>
-    </div>
+<section class="section-padding">
+  <div class="container text-center">
+    <span class="section-eyebrow">Certificação</span>
+    <h2 class="mt-2 mb-4">Responsabilidade técnica registrada</h2>
+    <img src="<?php echo BASE_URL; ?>/assets/img/logos/crea-certificacao.png" alt="Certificação CREA" style="max-height:120px;" class="mb-3">
+    <p class="text-muted mx-auto" style="max-width:560px;">Todos os projetos são conduzidos com Anotação de Responsabilidade Técnica (ART), garantindo segurança jurídica e técnica para o seu condomínio.</p>
+  </div>
 </section>
 
-
-<!-- CTA FINAL -->
-<section class="sobre-cta">
-    <div class="container" data-aos="zoom-in">
-        <h2>Seu projeto merece segurança e precisão</h2>
-        <p>
-            Fale com a Duarte Dias Engenharia e tenha um acompanhamento técnico completo,
-            do planejamento à execução.
-        </p>
-        <a href="/contato" class="btn btn-light btn-lg px-5">Solicitar Contato</a>
+<section class="pb-5">
+  <div class="container">
+    <div class="cta-banner text-center">
+      <h2 class="text-white mb-3">Quer conhecer nosso portfólio de obras?</h2>
+      <p class="mb-4" style="color:#c7cedb;">Veja projetos de restauração e pintura já entregues por nossa equipe.</p>
+      <a href="<?php echo BASE_URL; ?>/app/views/pages/projetos.php" class="btn btn-accent btn-lg px-4">Ver Projetos</a>
     </div>
+  </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-AOS.init({
-    duration: 900,
-    once: true,
-    easing: 'ease-out-cubic'
-});
-</script>
-
-<?php include '../../views/partials/footer.php'; ?>
-
-
+<?php require __DIR__ . '/../../includes/footer.php'; ?>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  IMPORTANTE: troque "https://duartediasengenharia.com.br" pelo domínio
+  real do site antes de publicar (o mesmo valor definido em SITE_URL,
+  dentro de config.php). Atualize também o campo <lastmod> sempre que
+  fizer alterações relevantes de conteúdo em cada página.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/index.php</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/app/views/pages/sobre.php</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/app/views/pages/servicos.php</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/app/views/pages/projetos.php</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/app/views/pages/contato.php</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/app/views/pages/blog.php</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/app/views/pages/blog/como-identificar-infiltracao-fachada.php</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/app/views/pages/blog/quando-repintar-fachada-predio.php</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/app/views/pages/blog/trincas-fissuras-fachada-quando-preocupar.php</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/app/views/pages/blog/pintura-fachada-tecnica-rapel-vantagens.php</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/app/views/pages/blog/quanto-custa-restauracao-fachada-predial.php</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/app/views/pages/blog/como-aprovar-pintura-fachada-assembleia.php</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/app/views/pages/blog/nr35-seguranca-trabalho-altura-sindico.php</loc>
+    <lastmod>2026-07-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://duartediasengenharia.com.br/app/views/pages/blog/manutencao-preventiva-fachada-economia.php</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

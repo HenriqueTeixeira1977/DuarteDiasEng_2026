@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+# Ignora se já estiver em /public/ ou se for arquivo/diretório real
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite interno para /public/index.php (para raiz e outras URLs)
+RewriteRule ^(.*)$ /public/index.php [L]
